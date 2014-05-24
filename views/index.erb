@@ -7,10 +7,10 @@
   <% @game_data.each do |game| %>
   <p><%= "Game: #{game_counter}"%><p>
     <li>
-      <%= "Home Team: #{game[:home_team]} :" "Score: #{game[:home_score]}" %>
+      <%= "Home Team: #{game[:home_team]}" " - #{game[:home_score]}" %>
     </li>
     <li>
-      <%= "Away Team: #{game[:away_team]} :" "Score: #{game[:away_score]}" %>
+      <%= "Away Team: #{game[:away_team]}" " - #{game[:away_score]}" %>
     </li>
     <% game_counter += 1 %>
   <% end %>
