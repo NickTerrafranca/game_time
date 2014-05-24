@@ -1,0 +1,13 @@
+<h1>Leaderboard</h1>
+
+<or>
+  <% @leaderboard.each do |team, standing| %>
+    <li>
+      <% wins = standing[:wins]%>
+      <% losses = standing[:losses]%>
+      <%= "#{team}: " "#{wins} Wins, " "#{losses} Losses" %>
+    </li>
+    <br>
+  <% end %>
+
+</or>
