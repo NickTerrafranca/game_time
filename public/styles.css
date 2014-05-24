@@ -8,6 +8,7 @@ body {
 p {
   font-size: 20px;
 }
+
 #leaderboard a:hover {
   color: #e29a1f;
   text-decoration: underline;
@@ -22,7 +23,6 @@ p {
 }
 
 #season_progress {
-
   margin: 100px
 }
 

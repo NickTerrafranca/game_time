@@ -1,25 +1,26 @@
 <h1>NFL Season Progress</h1>
 
 <div id="season_progress">
-
-<ul>
-  <% game_counter = 1 %>
-  <% @game_data.each do |game| %>
-  <p><%= "Game: #{game_counter}"%><p>
-    <li>
-      <%= "Home Team: #{game[:home_team]}" " - #{game[:home_score]}" %>
-    </li>
-    <li>
-      <%= "Away Team: #{game[:away_team]}" " - #{game[:away_score]}" %>
-    </li>
-    <% game_counter += 1 %>
-  <% end %>
-</ul>
+  <ul>
+    <% game_counter = 1 %>
+    <% @game_data.each do |game| %>
+      <p>
+        <%= "Game: #{game_counter}"%>
+      <p>
+      <li>
+        <%= "Home Team: #{game[:home_team]}" " - #{game[:home_score]}" %>
+      </li>
+      <li>
+        <%= "Away Team: #{game[:away_team]}" " - #{game[:away_score]}" %>
+      </li>
+      <% game_counter += 1 %>
+    <% end %>
+  </ul>
 </div>
 
 <div id="leaderboard">
   <a href="<%= "/leaderboard" %>">
-  <%= "LEADERBOARD" %>
+    <%= "LEADERBOARD" %>
   </a>
 </div>
 
