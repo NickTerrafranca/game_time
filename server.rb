@@ -43,3 +43,10 @@ get('/') do
   @game_data = read_team(TEAM_DATA_FILE)
   erb :index
 end
+
+get('/:leaderboard') do
+  @leaderboard = aggregate_leaderboard(TEAM_DATA_FILE)
+  erb :leaderboard
+end
+
+
