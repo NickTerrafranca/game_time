@@ -1,4 +1,4 @@
-# require 'sinatra'
+require 'sinatra'
 require 'csv'
 require 'pry'
 TEAM_DATA_FILE = 'team_data.csv'
@@ -39,8 +39,7 @@ def aggregate_leaderboard(csv)
   leaderboard
 end
 
-puts aggregate_leaderboard(TEAM_DATA_FILE)
-
 get('/') do
-
-erb :index
+  @game_data = read_team(TEAM_DATA_FILE)
+  erb :index
+end
