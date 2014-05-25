@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'csv'
-require 'pry'
 TEAM_DATA_FILE = 'team_data.csv'
 
 def read_team(csv)
@@ -36,17 +35,48 @@ def aggregate_leaderboard(csv)
       leaderboard[away_team][:wins] += 1
     end
   end
-  leaderboard
+  leaderboard.sort_by do |key, value|
+    value[:losses]
+  end
+end
+
+def game_opponent_data(input, csv)
+  team_data = read_team(TEAM_DATA_FILE)
+  user_input = input
+  game_array = []
+  team_data.each do |game|
+    if game.has_value?(user_input)
+      game_array << game
+    end
+  end
+  game_array
+end
+
+def total_wins_losses(input, csv)
+  user_selection = input
+  team_data = aggregate_leaderboard(TEAM_DATA_FILE)
+  selection = []
+  team_data.each do |team, standing|
+    if user_selection == team
+      selection << standing
+    end
+  end
+  selection
 end
 
 get('/') do
-  @game_data = read_team(TEAM_DATA_FILE)
+  @game_data = aggregate_leaderboard(TEAM_DATA_FILE)
   erb :index
 end
 
-get('/:leaderboard') do
+get('/teams/:team_details') do
+  @team_name = params[:team_details]
+  @game_opponents = game_opponent_data(@team_name, TEAM_DATA_FILE)
+  @team_totals = total_wins_losses(@team_name, TEAM_DATA_FILE)
+  erb :team_details
+end
+
+get('/leaderboard') do
   @leaderboard = aggregate_leaderboard(TEAM_DATA_FILE)
   erb :leaderboard
 end
-
-
