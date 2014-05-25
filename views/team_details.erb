@@ -1,0 +1,33 @@
+<h1>NFL <%= "#{@team_name}" %></h1>
+
+<div>
+  <% @team_totals[0].each do |key, value| %>
+    <p>
+      <%= "#{key.capitalize}:  " "#{value}" %>
+    </p>
+  <% end %>
+</div>
+
+<div id="team_details">
+  <ul>
+    <% @game_opponents.each do |game, standing| %>
+      <p>
+        <%= "#{game[:home_team]} vs. #{game[:away_team]}" %>
+      <p>
+      <li>
+        <%= "Home Team:  #{game[:home_team]}" " - Score:  #{game[:home_score]}" %>
+      </li>
+      <li>
+        <%= "Away Team: #{game[:away_team]}" " - Score:  #{game[:away_score]}" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="leaderboard">
+  <a href="<%= "/leaderboard" %>">
+    <%= "LEADERBOARD" %>
+  </a>
+</div>
+
+
