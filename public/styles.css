@@ -15,8 +15,8 @@ p {
 }
 
 #leaderboard a {
-  margin: 100px;
-  font-size: 35px;
+  margin: 50px;
+  font-size: 25px;
   color: #e50b18;
   font-weight: bold;
   text-decoration: none;
@@ -26,3 +26,21 @@ p {
   margin: 100px
 }
 
+.team_link a {
+  color: #e50b18;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.team_link a:hover {
+  color: #e29a1f;
+  text-decoration: underline;
+}
+
+#team_details li {
+  font-size: 20px;
+}
+
+#dislpay_leaderboard {
+  font-size: 20px;
+}
