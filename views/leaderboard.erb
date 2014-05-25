@@ -1,12 +1,12 @@
 <h1>Leaderboard</h1>
+<div id="dislpay_leaderboard">
+  <or>
+    <% @leaderboard.each do |team, standing| %>
+      <li>
+        <%= "#{team}: " "#{standing[:wins]} Wins, " "#{standing[:losses]} Losses" %>
+      </li>
+      <br>
+    <% end %>
+  </or>
+</div>
 
-<or>
-  <% @leaderboard.each do |team, standing| %>
-    <li>
-      <% wins = standing[:wins]%>
-      <% losses = standing[:losses]%>
-      <%= "#{team}: " "#{wins} Wins, " "#{losses} Losses" %>
-    </li>
-    <br>
-  <% end %>
-</or>
